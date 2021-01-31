@@ -1,12 +1,8 @@
-a = int(input()) 
-b = int(input())
-c = int(input())
-
-
+a, b, c = map(int, input().split())
 
 def check(x,y,z):
 	n=y**2+z**2
-	if x == n:
+	if x == n**0.5:
 		print("1")
 	else :
 		print("0")
