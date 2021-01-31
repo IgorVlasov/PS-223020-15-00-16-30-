@@ -16,15 +16,15 @@ def check (x,y,z):
 		z_b = True 
 	
 	#  типо теперь самая веселуха
-	if x_b == True:
-		print("0")
-	if y_b == True :
-		print("1")
-	if z_b == True:
-		print("2")
 	if x_b == True and y_b == True and z_b == True:
 		print(x+y+z)
-	if x_b == False and y_b == False and z_b == False:
+	elif x_b == True:
+		print("0")
+	elif y_b == True :
+		print("1")
+	elif z_b == True:
+		print("2")
+	elif x_b == False and y_b == False and z_b == False:
 		print("никакое из условий не выполнено")
 
 	return 0

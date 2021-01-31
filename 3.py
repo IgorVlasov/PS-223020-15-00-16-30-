@@ -5,7 +5,7 @@ c = int(input())
 
 
 def check(x,y,z):
-	n=y^2+z^2
+	n=y**2+z**2
 	if x == n:
 		print("1")
 	else :

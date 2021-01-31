@@ -16,7 +16,7 @@ if a > 5000 and a < 10000:
 a = int(a)
 
 if ent == True:
-	c = a - (f_1 ^ 2) * (f_2 ^ 2)
+	c = a - (f_1**2) * (f_2**2)
 else:
-	c = a - n * n
+	c = a - n**2
 print(c)
