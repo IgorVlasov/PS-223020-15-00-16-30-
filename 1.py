@@ -1,6 +1,5 @@
-a = int(input())
-b = int(input())
+a, b = map(int, input().split())
 
 c = a**(2*b) - b**(2*a)
-c = int(c)
+
 print(c)
