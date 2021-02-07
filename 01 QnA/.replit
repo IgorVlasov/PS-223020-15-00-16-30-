@@ -1,3 +1,0 @@
-language = "python3"
-
-run = "python '01 QnA/Ghoul.py'"
