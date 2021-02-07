@@ -4,7 +4,8 @@ def check(x,y,z):
 	if x == 90:
 		if y==z:
 			print("1")
-	
+	elif x != 90:
+		print('0')
 
 if a + b + c == 180:
 	if a == b or b == c or a == c:
