@@ -18,11 +18,20 @@ while True:
   elif userUnswer == "help":
     print(HELP)
   elif userUnswer == "add":
+
+    print("Введите дату события")
+    key = input()
+    print("какое событие?")
+    value = input()
+    todo[key] = value
+
     print("событие добавлено")
   elif userUnswer == "remove":
     print("событие удалено")
   elif userUnswer == "show":
-    print("Ky")
+    print("\n У вас запланировано:")
+    for i in todo.keys():
+      print(todo[i])
   else:
     print("Не корректная команда")
     print("Для вывода команд введите help")
