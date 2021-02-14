@@ -1,9 +1,13 @@
-HELP=""
+HELP="""
 help- список команд
 add-добавить событие 
 show-показать события
 remove-удалить элемент
 exit-закрыть программу
+"""
+
+
+
 
 todo={}
 userAnswer=0
@@ -25,6 +29,6 @@ while True:
     print("Ку")
   elif userAnswer =="remove":
     print("Событие удалено")
-   else:
-     print("Не корректная команда")
-     print("Для вывода списка команд введите help") 
+  else:
+    print("Не корректная команда")
+    print("Для вывода списка команд введите help") 
