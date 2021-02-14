@@ -13,7 +13,7 @@ print("Ввудите команду")
 print("Для вывода списака команд введите help")
 
 while True:
-  userUnswer = input()
+  userUnswer = input().lower()
 
   if userUnswer == "exit":
     print ("Программа закрыта")
@@ -21,11 +21,26 @@ while True:
   elif userUnswer == "help":
     print(HELP)
   elif userUnswer == "add":
-    print("Введите дату события")
-
     userKey = input()
+    print("Введите дату события в формате дд.мм.гггг")
+    check = userKey.split("."): 
+    print(check)
+    for i in check:
+      if i.isdigit():
+        check = False
+      else:
+        check = True
+    if check:
+      print("не верно формат даты")
+      continue
+
+
+        
+
+    
     print("Что нужно сделать?")
     userValue = input()
+    
 
     todo[userKey] = userValue
     print("Событие добавленно")
@@ -33,9 +48,10 @@ while True:
     print("Событие удалено")
   elif userUnswer == "show":
     print("\n У вас запланированно:")
-    for i in todo.keys():
-      print("\t" + todo[i])
-    print("Ку!")
+    print(todo)
+    for i in sorted( todo.keys() ):
+      print(i + "\t" + todo[i])
+
   else:
     print("Введина некоректнная команда")
     print("Для вывода списака команд введите help")
