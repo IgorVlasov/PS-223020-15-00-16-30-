@@ -11,7 +11,7 @@ print("введите команду")
 print("для вывода списка команд введите help")
 
 while True:
-  userUnswer = input()
+  userUnswer = input().lower()
   if userUnswer == "exit":
     print("программа закрыта")
     breake
@@ -19,8 +19,20 @@ while True:
     print(HELP)
   elif userUnswer == "add":
 
-    print("Введите дату события")
+    print("Введите дату события дд.мм.гггг")
     key = input()
+
+    check = key.split(".")
+    for i in check:
+      if i.isdigit():
+        check = false
+      else:
+        check = true
+    if check:
+      print("введите правильный формат даты")
+      continue
+
+  
     print("какое событие?")
     value = input()
     todo[key] = value
@@ -30,8 +42,8 @@ while True:
     print("событие удалено")
   elif userUnswer == "show":
     print("\n У вас запланировано:")
-    for i in todo.keys():
-      print(todo[i])
+    for i in sorted(todo.keys()):
+      print(i + "\t" + todo[i])
   else:
     print("Не корректная команда")
     print("Для вывода команд введите help")
