@@ -24,8 +24,20 @@ while True:
   elif userAnswer =="help":
     print("Help")
   elif userAnswer =="add":
+    print("Введите дату события")
+
+    userKey=input()
+    print("Что нужно сделать?")
+    userValue=input()
+
+    todo[userKey]=userValue
+
     print("Событие добавлено")
   elif userAnswer =="show":
+    print("\nУ вас запланировано:")
+    for i in todo.keys():
+      print("\t"+todo[i])
+
     print("Ку")
   elif userAnswer =="remove":
     print("Событие удалено")
