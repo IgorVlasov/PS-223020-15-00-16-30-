@@ -44,8 +44,9 @@ while True:
   elif userUnswer == "show":
     print("\nУ вас запланировано:")
 
-    for i in sorted( todo.keys() ):
-      print(i + "\t" + todo[i])
+    for pDate in sorted( todo.keys() ):
+      for pTask in todo[pDate]:
+        print (f"[{pDate}]\t{pTask}")
   else:
     print("Не корректная команда")
     print("для вывода списка команд введие help")
