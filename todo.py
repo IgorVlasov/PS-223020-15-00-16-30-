@@ -22,23 +22,28 @@ while True:
   elif userUnswer == "help":
     print(HELP)
   elif userUnswer == "add":
-    usrKey = input("Введите дату события в формате дд.мм.гггг\n")
+    uDate = input("Введите дату события в формате дд.мм.гггг\n")
      
     try:
-      time.strptime(usrKey, '%d.%m.%Y')
+      time.strptime(uDate, '%d.%m.%Y')
     except ValueError:
       print('Не правильный формат даты')
       continue
 
-    usrValue = input("Что нужно сделать?\n")
+    uTask = input("Что нужно сделать?\n")
 
-    todo[ usrKey ] = usrValue
-    print("Событие добавлено")
+    if uDate in todo:
+      todo[ uDate ].append( uTask )
+    else:
+      todo[ uDate ] = [uTask]
+
+    print( f"На {uDate} нужно выполнить '{uTask}'." )
+
   elif userUnswer == "remove":
     print("Событие удалено")
   elif userUnswer == "show":
     print("\nУ вас запланировано:")
-    print(todo)
+
     for i in sorted( todo.keys() ):
       print(i + "\t" + todo[i])
   else:
