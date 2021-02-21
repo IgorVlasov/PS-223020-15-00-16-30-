@@ -22,8 +22,7 @@ while True:
   elif userUnswer == "help":
     print(HELP)
   elif userUnswer == "add":
-    print("Введите дату события в формате дд.мм.гггг")
-    usrKey = input()
+    usrKey = input("Введите дату события в формате дд.мм.гггг\n")
      
     try:
       time.strptime(usrKey, '%d.%m.%Y')
@@ -31,9 +30,7 @@ while True:
       print('Не правильный формат даты')
       continue
 
-
-    print("Что нужно сделать?")
-    usrValue = input()
+    usrValue = input("Что нужно сделать?\n")
 
     todo[ usrKey ] = usrValue
     print("Событие добавлено")
