@@ -1,49 +1,52 @@
+import time
 HELP = """
-help   - список команд
-add    - добавить  событие
-show   - показать события
-remove - удалить элемент
-exit   - выход
+help    - список команд
+add     - добавть событие
+show    - показать события
+remove  - удалить элемент
+exit    - закрыть программу
 """
+
 todo = {}
 userUnswer = 0
-print("введите команду")
-print("для вывода списка команд введите help")
+
+print("Введите команду")
+print("для вывода списка команд введие help")
 
 while True:
   userUnswer = input().lower()
+
   if userUnswer == "exit":
-    print("программа закрыта")
-    breake
+    print("Программа закрыта")
+    break
   elif userUnswer == "help":
     print(HELP)
   elif userUnswer == "add":
-
-    print("Введите дату события дд.мм.гггг")
-    key = input()
-
-    check = key.split(".")
-    for i in check:
-      if i.isdigit():
-        check = false
-      else:
-        check = true
-    if check:
-      print("введите правильный формат даты")
+    uDate = input("Введите дату события в формате дд.мм.гггг\n")
+     
+    try:
+      time.strptime(uDate, '%d.%m.%Y')
+    except ValueError:
+      print('Не правильный формат даты')
       continue
 
-  
-    print("какое событие?")
-    value = input()
-    todo[key] = value
+    uTask = input("Что нужно сделать?\n")
 
-    print("событие добавлено")
+    if uDate in todo:
+      todo[ uDate ].append( uTask )
+    else:
+      todo[ uDate ] = [uTask]
+
+    print( f"На {uDate} нужно выполнить '{uTask}'." )
+
   elif userUnswer == "remove":
-    print("событие удалено")
+    print("Событие удалено")
   elif userUnswer == "show":
-    print("\n У вас запланировано:")
-    for i in sorted(todo.keys()):
-      print(i + "\t" + todo[i])
+    print("\nУ вас запланировано:")
+
+    for pDate in sorted( todo.keys() ):
+     for pTask in todo[pDate]:
+       print(f"[{pDate}]\t{pTask}")
   else:
     print("Не корректная команда")
-    print("Для вывода команд введите help")
+    print("для вывода списка команд введие help")
