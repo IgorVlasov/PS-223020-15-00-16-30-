@@ -1,3 +1,4 @@
+import time
 HELP = """
 help    - список команд
 add     - добавть событие
@@ -23,17 +24,13 @@ while True:
   elif userUnswer == "add":
     print("Введите дату события в формате дд.мм.гггг")
     usrKey = input()
-    
-    check = False
-    for i in usrKey.split("."):
-      if i.isdigit():
-        check = False
-      else:
-        check = True
-        
-    if check:
-      print("не верный формат даты")
+     
+    try:
+      time.strptime(usrKey, '%d.%m.%Y')
+    except ValueError:
+      print('Не правильный формат даты')
       continue
+
 
     print("Что нужно сделать?")
     usrValue = input()
